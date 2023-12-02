@@ -1,6 +1,6 @@
 {
-    "name": "chevere/reponame",
-    "description": "A chevere reponame package",
+    "name": "chevere/writer",
+    "description": "A chevere writer package",
     "homepage": "https://chevere.org",
     "type": "library",
     "license": "Apache-2.0",
@@ -12,7 +12,10 @@
         }
     ],
     "require": {
-        "chevere/chevere": "^3.0"
+        "php": "^8.1",
+        "chevere/message": "^0.1.0",
+        "nyholm/psr7": "^1.5",
+        "thecodingmachine/safe": "^2.5"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.9",
@@ -24,7 +27,7 @@
             "src/functions.php"
         ],
         "psr-4": {
-            "Chevere\\%namespace%\\": "src/"
+            "Chevere\\Writer\\": "src/"
         }
     },
     "autoload-dev": {
