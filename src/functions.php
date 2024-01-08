@@ -14,52 +14,40 @@ declare(strict_types=1);
 namespace Chevere\Writer;
 
 use Chevere\Writer\Interfaces\WritersInterface;
+use ErrorException;
 use InvalidArgumentException;
 use Nyholm\Psr7\Stream;
 use Psr\Http\Message\StreamInterface;
-use Throwable;
-use function Chevere\Message\message;
-use function Safe\fopen;
 
-/**
- * @codeCoverageIgnore
- */
 function writers(): WritersInterface
 {
     return WritersInstance::get();
 }
 
 /**
- * @codeCoverageIgnore
- *
  * @throws InvalidArgumentException
  */
 function streamFor(string $uri, string $mode): StreamInterface
 {
-    try {
-        return Stream::create(fopen($uri, $mode));
-    } catch (Throwable $e) {
-        throw new InvalidArgumentException(
-            previous: $e,
-            message: (string) message(
-                'Unable to create stream for `%uri%`',
-                uri: $uri
-            )
+    error_clear_last();
+    $fopen = @fopen($uri, $mode);
+    if ($fopen === false) {
+        $error = error_get_last();
+
+        throw new ErrorException(
+            message: $error['message'] ?? 'An error occured',
+            code: 0,
+            severity: $error['type'] ?? 1
         );
     }
+
+    return Stream::create($fopen);
 }
 
 /**
- * @codeCoverageIgnore
+ * @throws InvalidArgumentException
  */
 function streamTemp(string $content = ''): StreamInterface
 {
-    try {
-        return Stream::create($content);
-    } catch (Throwable $e) {
-        throw new InvalidArgumentException(
-            previous: $e,
-            message: (string) message('Unable to create temp stream')
-        );
-    }
+    return Stream::create($content);
 }

@@ -31,5 +31,6 @@ final class WritersInstanceTest extends TestCase
         $writers = new Writers();
         $instance = new WritersInstance($writers);
         $this->assertSame($writers, $instance::get());
+        unset($instance);
     }
 }

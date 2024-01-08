@@ -18,7 +18,6 @@ use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
 use RuntimeException;
 use Throwable;
-use function Chevere\Message\message;
 
 /**
  * @codeCoverageIgnore
@@ -31,7 +30,7 @@ final class StreamWriter implements WriterInterface
     ) {
         if (! $this->stream->isWritable()) {
             throw new InvalidArgumentException(
-                (string) message('Stream provided is not writable')
+                'Stream provided is not writable'
             );
         }
     }
@@ -48,7 +47,7 @@ final class StreamWriter implements WriterInterface
         } catch (Throwable $e) {
             throw new RuntimeException(
                 previous: $e,
-                message: (string) message('Unable to write provided string')
+                message: 'Unable to write provided string'
             );
         }
     }

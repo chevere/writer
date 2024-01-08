@@ -1,6 +1,6 @@
 {
     "name": "chevere/writer",
-    "description": "A chevere writer package",
+    "description": "Tooling for writing to streams",
     "homepage": "https://chevere.org",
     "type": "library",
     "license": "Apache-2.0",
