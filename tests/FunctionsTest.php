@@ -15,7 +15,7 @@ namespace Chevere\Tests;
 
 use Chevere\Writer\Writers;
 use Chevere\Writer\WritersInstance;
-use ErrorException;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 use function Chevere\Writer\streamFor;
 use function Chevere\Writer\writers;
@@ -42,7 +42,7 @@ final class FunctionsTest extends TestCase
     {
         $uri = '404';
         $mode = 'r+';
-        $this->expectException(ErrorException::class);
+        $this->expectException(LogicException::class);
         $this->expectExceptionMessage(
             <<<PLAIN
             fopen(404): Failed to open stream: No such file or directory

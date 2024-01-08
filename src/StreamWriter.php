@@ -15,8 +15,8 @@ namespace Chevere\Writer;
 
 use Chevere\Writer\Interfaces\WriterInterface;
 use InvalidArgumentException;
+use LogicException;
 use Psr\Http\Message\StreamInterface;
-use RuntimeException;
 use Throwable;
 
 /**
@@ -45,7 +45,7 @@ final class StreamWriter implements WriterInterface
         try {
             $this->stream->write($string);
         } catch (Throwable $e) {
-            throw new RuntimeException(
+            throw new LogicException(
                 previous: $e,
                 message: 'Unable to write provided string'
             );
