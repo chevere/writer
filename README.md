@@ -32,6 +32,31 @@ Writer is available through [Packagist](https://packagist.org/packages/chevere/w
 composer require chevere/writer
 ```
 
+## Streams
+
+### Stream for
+
+Use function `streamFor` to create an stream.
+
+```php
+use function Chevere\Writer\streamFor;
+
+$stream = streamFor(
+    stream: 'php://temp',
+    mode: 'r+'
+);
+```
+
+### Stream temp
+
+Use function `streamTemp` to create a temp stream (rw+).
+
+```php
+use function Chevere\Writer\streamTemp;
+
+$stream = streamTemp($content);
+```
+
 ## StreamWriter
 
 Use `StreamWriter` to write strings to a stream.
