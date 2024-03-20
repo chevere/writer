@@ -18,8 +18,6 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=chevere_writer&metric=sqale_index)](https://sonarcloud.io/dashboard?id=chevere_writer)
 [![CodeFactor](https://www.codefactor.io/repository/github/chevere/writer/badge)](https://www.codefactor.io/repository/github/chevere/writer)
 
-![Writer](.github/banner/writer-logo.svg)
-
 ## Summary
 
 Writer provides tooling for writing to streams.
