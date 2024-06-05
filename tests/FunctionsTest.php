@@ -22,12 +22,18 @@ use function Chevere\Writer\writers;
 
 final class FunctionsTest extends TestCase
 {
+    public function testWritersNoInstance(): void
+    {
+        $this->expectException(LogicException::class);
+        writers();
+    }
+
     public function testWritersInstance(): void
     {
         $writers = new Writers();
         $instance = new WritersInstance($writers);
+        $this->assertSame($writers, writers());
         $this->assertSame($instance->get(), writers());
-        unset($instance);
     }
 
     public function testStreamFor(): void

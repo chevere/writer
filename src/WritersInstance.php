@@ -18,23 +18,18 @@ use LogicException;
 
 final class WritersInstance
 {
-    private static ?WritersInterface $instance;
+    private static WritersInterface $instance;
 
     public function __construct(WritersInterface $writers)
     {
         self::$instance = $writers;
     }
 
-    public function __destruct()
-    {
-        self::$instance = null;
-    }
-
     public static function get(): WritersInterface
     {
         if (! isset(self::$instance)) {
             throw new LogicException(
-                'No writers instance present'
+                sprintf('No `%s` instance present', WritersInterface::class)
             );
         }
 

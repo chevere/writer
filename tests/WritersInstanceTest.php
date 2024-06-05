@@ -15,22 +15,14 @@ namespace Chevere\Tests;
 
 use Chevere\Writer\Writers;
 use Chevere\Writer\WritersInstance;
-use LogicException;
 use PHPUnit\Framework\TestCase;
 
 final class WritersInstanceTest extends TestCase
 {
-    public function testNoConstruct(): void
-    {
-        $this->expectException(LogicException::class);
-        WritersInstance::get();
-    }
-
     public function testConstruct(): void
     {
         $writers = new Writers();
         $instance = new WritersInstance($writers);
         $this->assertSame($writers, $instance::get());
-        unset($instance);
     }
 }
