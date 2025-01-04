@@ -16,7 +16,6 @@ namespace Chevere\Writer;
 use Chevere\Writer\Interfaces\WritersInterface;
 use InvalidArgumentException;
 use LogicException;
-use Nyholm\Psr7\Stream;
 use Psr\Http\Message\StreamInterface;
 
 function writers(): WritersInterface
