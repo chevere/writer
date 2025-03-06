@@ -18,6 +18,7 @@ use Chevere\Writer\Interfaces\WriterInterface;
 /**
  * @codeCoverageIgnore
  * @infection-ignore-all
+ * @phpstan-ignore-next-line
  */
 trait WriterTrait
 {
