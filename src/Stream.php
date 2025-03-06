@@ -16,12 +16,14 @@ namespace Chevere\Writer;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * This class has been taken from nyholm/psr7, it has been slightly modified
- * to provide a stand-alone stream writer for our use case.
+ * This Stream class has been copied from nyholm/psr7 and slightly
+ * modified to provide a stand-alone stream writer.
  *
  * @author Michael Dowling and contributors to guzzlehttp/psr7
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @author Martijn van der Ven <martijn@vanderven.se>
+ *
+ * @codeCoverageIgnore
  */
 class Stream implements StreamInterface
 {
