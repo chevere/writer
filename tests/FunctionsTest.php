@@ -51,7 +51,7 @@ final class FunctionsTest extends TestCase
         $this->expectException(LogicException::class);
         $this->expectExceptionMessage(
             <<<PLAIN
-            fopen(404): Failed to open stream: No such file or directory
+            Failed to open stream: No such file or directory
             PLAIN
         );
         streamFor($uri, $mode);
